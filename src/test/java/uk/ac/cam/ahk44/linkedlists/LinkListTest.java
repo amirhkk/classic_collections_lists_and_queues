@@ -22,6 +22,9 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
+
 @RunWith(JUnit4.class)
 public class LinkListTest {
 
@@ -62,5 +65,67 @@ public class LinkListTest {
 
     // ASSERT
     assertThat(value).isEqualTo("[2,1]");
+  }
+
+  @Test
+  public void create_IsCorrect(){
+    //ARRANGE
+    int[] a = {};
+    int b[] = {1, 2, 3};
+
+    //ACT
+    LinkList aa = LinkList.create(a);
+    String p = aa.toString();
+    LinkList bb = LinkList.create(b);
+    String q = bb.toString();
+
+    // ASSERT
+    assertThat(p).isEqualTo("[]");
+    assertThat(q).isEqualTo("[3,2,1]");
+  }
+
+  @Test
+  public void removeFirst_IsCorrect(){
+    // ARRANGE
+    LinkList list = new LinkList();
+    list.addFirst(1);
+    list.addFirst(2);
+    list.removeFirst();
+
+    // ACT
+    String value = list.toString();
+
+    // ASSERT
+    assertThat(value).isEqualTo("[1]");
+  }
+
+  @Test
+  public void get_IsCorrect(){
+    // ARRANGE
+    LinkList list = new LinkList();
+    list.addFirst(1);
+    list.addFirst(2);
+    list.addFirst(3);
+
+    // ACT
+    int value = list.get(1);
+
+    // ASSERT
+    assertThat(value).isEqualTo(2);
+  }
+
+  @Test
+  public void length_IsCorrect(){
+    // ARRANGE
+    LinkList list = new LinkList();
+    list.addFirst(1);
+    list.addFirst(2);
+    list.addFirst(3);
+
+    // ACT
+    int value = list.length();
+
+    // ASSERT
+    assertThat(value).isEqualTo(3);
   }
 }

@@ -16,6 +16,8 @@
 
 package uk.ac.cam.ahk44.linkedlists;
 
+import java.util.NoSuchElementException;
+
 public class LinkList {
 
   private static class Node {
@@ -53,6 +55,35 @@ public class LinkList {
     } else {
       head = new Node(element, head);
     }
+  }
+
+  int removeFirst() {
+    if (head == null) {
+      throw new NoSuchElementException();
+    } else {
+      int ans = head.value;
+      head = head.next;
+      return ans;
+    }
+  }
+
+  int get(int n){
+    if (head == null) throw new NoSuchElementException();
+    if(n == 0) return head.value;
+    removeFirst();
+    return get(n - 1);
+  }
+
+  int length(){
+    if (head == null) return 0;
+    removeFirst();
+    return length() + 1;
+  }
+
+  public static LinkList create(int[] elements){
+    LinkList Amir = new LinkList();
+    for(int i = 0; i < elements.length; i++) Amir.addFirst(elements[i]);
+    return Amir;
   }
 
   @Override
