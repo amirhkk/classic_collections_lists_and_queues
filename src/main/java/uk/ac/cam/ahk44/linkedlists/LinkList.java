@@ -82,7 +82,7 @@ public class LinkList {
 
   public static LinkList create(int[] elements){
     LinkList Amir = new LinkList();
-    for(int i = 0; i < elements.length; i++) Amir.addFirst(elements[i]);
+    for(int i = elements.length - 1; i >= 0; i--) Amir.addFirst(elements[i]);
     return Amir;
   }
 

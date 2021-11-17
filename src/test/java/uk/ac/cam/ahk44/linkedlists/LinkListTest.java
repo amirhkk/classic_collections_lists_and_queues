@@ -81,7 +81,7 @@ public class LinkListTest {
 
     // ASSERT
     assertThat(p).isEqualTo("[]");
-    assertThat(q).isEqualTo("[3,2,1]");
+    assertThat(q).isEqualTo("[1,2,3]");
   }
 
   @Test
