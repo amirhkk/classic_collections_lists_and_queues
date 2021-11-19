@@ -21,15 +21,15 @@ import java.util.NoSuchElementException;
 public class LinkList {
 
   private static class Node {
-    private int value;
+    private Object value;
     private Node next;
 
-    public Node(int value, Node next) {
+    public Node(Object value, Node next) {
       this.value = value;
       this.next = next;
     }
 
-    Node(int value) {
+    Node(Object value) {
       this.value = value;
       this.next = null;
     }
@@ -49,7 +49,7 @@ public class LinkList {
     this.head = null;
   }
 
-  void addFirst(int element) {
+  void addFirst(Object element) {
     if (head == null) {
       head = new Node(element);
     } else {
@@ -57,17 +57,17 @@ public class LinkList {
     }
   }
 
-  int removeFirst() {
+  Object removeFirst() {
     if (head == null) {
       throw new NoSuchElementException();
     } else {
-      int ans = head.value;
+      Object ans = head.value;
       head = head.next;
       return ans;
     }
   }
 
-  int get(int n){
+  Object get(int n){
     if (head == null) throw new NoSuchElementException();
     if(n == 0) return head.value;
     removeFirst();
@@ -80,7 +80,7 @@ public class LinkList {
     return length() + 1;
   }
 
-  public static LinkList create(int[] elements){
+  public static LinkList create(Object[] elements){
     LinkList Amir = new LinkList();
     for(int i = elements.length - 1; i >= 0; i--) Amir.addFirst(elements[i]);
     return Amir;

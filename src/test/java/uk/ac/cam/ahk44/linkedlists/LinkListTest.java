@@ -70,8 +70,8 @@ public class LinkListTest {
   @Test
   public void create_IsCorrect(){
     //ARRANGE
-    int[] a = {};
-    int b[] = {1, 2, 3};
+    Object[] a = {};
+    Object b[] = {1, 2, 3};
 
     //ACT
     LinkList aa = LinkList.create(a);
@@ -103,15 +103,15 @@ public class LinkListTest {
   public void get_IsCorrect(){
     // ARRANGE
     LinkList list = new LinkList();
-    list.addFirst(1);
-    list.addFirst(2);
-    list.addFirst(3);
+    list.addFirst("!");
+    list.addFirst("@");
+    list.addFirst("£");
 
     // ACT
-    int value = list.get(1);
+    Object value = list.get(1);
 
     // ASSERT
-    assertThat(value).isEqualTo(2);
+    assertThat(value).isEqualTo("@");
   }
 
   @Test
