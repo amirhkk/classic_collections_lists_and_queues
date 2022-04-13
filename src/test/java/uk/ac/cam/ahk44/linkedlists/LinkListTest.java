@@ -128,4 +128,20 @@ public class LinkListTest {
     // ASSERT
     assertThat(value).isEqualTo(3);
   }
+
+  @Test
+  public void reverse_IsCorrect(){
+    // ARRANGE
+    LinkList list = new LinkList();
+    list.addFirst(1);
+    list.addFirst(2);
+    list.addFirst(3);
+    list.reverse();
+
+    // ACT
+    String value = list.toString();
+
+    // ASSERT
+    assertThat(value).isEqualTo("[1,2,3]");
+  }
 }

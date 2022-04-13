@@ -110,4 +110,20 @@ public class ArrayedListTest {
         // ASSERT
         assertThat(value).isEqualTo(3);
     }
+
+    @Test
+    public void reverse_IsCorrect(){
+        // ARRANGE
+        ArrayedList list = new ArrayedList();
+        list.addFirst(1);
+        list.addFirst(2);
+        list.addFirst(3);
+        list.reverse();
+
+        // ACT
+        String value = list.toString();
+
+        // ASSERT
+        assertThat(value).isEqualTo("[1,2,3]");
+    }
 }

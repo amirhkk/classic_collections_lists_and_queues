@@ -8,5 +8,7 @@ public interface OopList {
 
     public Object get(int n);
 
+    public void reverse();
+
     public int length();
 }

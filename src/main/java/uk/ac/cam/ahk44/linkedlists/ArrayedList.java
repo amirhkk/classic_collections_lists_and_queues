@@ -42,6 +42,12 @@ public class ArrayedList implements OopList{
         }
     }
 
+    public void reverse(){
+        Object[] arr2 = new Object[arr.length];
+        for(int i = 0; i < len; i++) arr2[i] = arr[len - 1 - i];
+        arr = arr2;
+    }
+
     public Object get(int n){
         if (n >= len) throw new NoSuchElementException();
         return arr[n];

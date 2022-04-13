@@ -67,6 +67,19 @@ public class LinkList implements OopList {
     }
   }
 
+  @Override
+  public void reverse() {
+    LinkList Amir = new LinkList();
+    while(true){
+      if(head != null){
+        Amir.addFirst(head.value);
+        head = head.next;
+      }
+      else break;
+    }
+    head = Amir.head;
+  }
+
   public Object get(int n){
     if (head == null) throw new NoSuchElementException();
     if(n == 0) return head.value;
