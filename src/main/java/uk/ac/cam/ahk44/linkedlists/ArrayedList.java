@@ -19,13 +19,13 @@ public class ArrayedList implements OopList{
             }
         }
         else{
-            len *= 2;
-            Object[] arr2 = new Object[len];
-            for(int i = 1; i <= len/2; i++){
+            Object[] arr2 = new Object[arr.length * 2];
+            for(int i = 1; i <= len; i++){
                 arr2[i] = arr[i - 1];
             }
             arr = arr2;
         }
+        len += 1;
         arr[0] = element;
     }
 
@@ -57,6 +57,9 @@ public class ArrayedList implements OopList{
 
     @Override
     public String toString() {
-        return String.format("[%s]", arr[0] == null ? "" : arr[0].toString());
+        String ans = "";
+        for(int i = 0; i < len - 1; i++) ans = ans + arr[i].toString() + ",";
+        if(len > 0) ans += arr[len - 1];
+        return String.format("[%s]", ans);
     }
 }
