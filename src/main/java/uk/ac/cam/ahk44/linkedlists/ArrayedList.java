@@ -43,7 +43,7 @@ public class ArrayedList implements OopList{
     }
 
     public Object get(int n){
-        if (arr[n] == null) throw new NoSuchElementException();
+        if (n >= len) throw new NoSuchElementException();
         return arr[n];
     }
 
