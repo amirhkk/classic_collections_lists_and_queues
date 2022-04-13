@@ -18,7 +18,7 @@ package uk.ac.cam.ahk44.linkedlists;
 
 import java.util.NoSuchElementException;
 
-public class LinkList {
+public class LinkList implements OopList {
 
   private static class Node {
     private Object value;
@@ -49,7 +49,7 @@ public class LinkList {
     this.head = null;
   }
 
-  void addFirst(Object element) {
+  public void addFirst(Object element) {
     if (head == null) {
       head = new Node(element);
     } else {
@@ -57,7 +57,7 @@ public class LinkList {
     }
   }
 
-  Object removeFirst() {
+  public Object removeFirst() {
     if (head == null) {
       throw new NoSuchElementException();
     } else {
@@ -67,14 +67,14 @@ public class LinkList {
     }
   }
 
-  Object get(int n){
+  public Object get(int n){
     if (head == null) throw new NoSuchElementException();
     if(n == 0) return head.value;
     removeFirst();
     return get(n - 1);
   }
 
-  int length(){
+  public int length(){
     if (head == null) return 0;
     removeFirst();
     return length() + 1;
