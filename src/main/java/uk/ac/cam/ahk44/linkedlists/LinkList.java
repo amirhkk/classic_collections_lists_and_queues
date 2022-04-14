@@ -41,6 +41,13 @@ public class LinkList implements OopList {
       }
       return value + "," + next;
     }
+
+    public int length() {
+      if(next == null){
+        return 0;
+      }
+      return next.length() + 1;
+    }
   }
 
   private Node head;
@@ -89,8 +96,7 @@ public class LinkList implements OopList {
 
   public int length(){
     if (head == null) return 0;
-    removeFirst();
-    return length() + 1;
+    return head.length() + 1;
   }
 
   public static LinkList create(Object[] elements){
