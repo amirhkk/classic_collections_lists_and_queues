@@ -1,6 +1,6 @@
 package uk.ac.cam.ahk44.linkedlists;
 
-public class LinkQueue {
+public class LinkQueue implements OopQueue {
 
     private static LinkList one;
     private static LinkList two;
