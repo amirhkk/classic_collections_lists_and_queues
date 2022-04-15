@@ -90,8 +90,10 @@ public class LinkList implements OopList {
   public Object get(int n){
     if (head == null) throw new NoSuchElementException();
     if(n == 0) return head.value;
-    head = head.next;
-    return get(n - 1);
+    Object tmp = removeFirst();
+    Object ans = get(n - 1);
+    addFirst(tmp);
+    return ans;
   }
 
   public int length(){
