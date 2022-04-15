@@ -20,7 +20,7 @@ import java.util.NoSuchElementException;
 
 public class LinkList implements OopList {
 
-  private static class Node {
+  private static class Node{
     private Object value;
     private Node next;
 
@@ -103,6 +103,33 @@ public class LinkList implements OopList {
     LinkList Amir = new LinkList();
     for(int i = elements.length - 1; i >= 0; i--) Amir.addFirst(elements[i]);
     return Amir;
+  }
+
+  public void reorderLowHigh(){
+    LinkList Amir = new LinkList();
+    int tmp = 1;
+    while(true){
+      tmp = 1 - tmp;
+      if(head != null){
+        if(Amir.length() > 0){
+          int prev = (int) Amir.removeFirst();
+          int now = (int) this.removeFirst();
+          if ((now < prev && tmp == 0) || (now > prev && tmp == 1)) {
+            Amir.addFirst(prev);
+            Amir.addFirst(now);
+          } else {
+            Amir.addFirst(now);
+            Amir.addFirst(prev);
+          }
+        } else{
+          int now = (int) this.removeFirst();
+          Amir.addFirst(now);
+        }
+      }
+      else break;
+    }
+    Amir.reverse();
+    head = Amir.head;
   }
 
   @Override

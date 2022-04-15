@@ -144,4 +144,22 @@ public class LinkListTest {
     // ASSERT
     assertThat(value).isEqualTo("[1,2,3]");
   }
+
+  @Test
+  public void reorderLowHigh_IsCorrect(){
+    // ARRANGE
+    LinkList list = new LinkList();
+    list.addFirst(5);
+    list.addFirst(4);
+    list.addFirst(3);
+    list.addFirst(2);
+    list.addFirst(1);
+    list.reorderLowHigh();
+
+    // ACT
+    String value = list.toString();
+
+    // ASSERT
+    assertThat(value).isEqualTo("[1,3,2,5,4]");
+  }
 }
